@@ -4,11 +4,14 @@ import Body from './body'
 import Notes from './notes'
 import axios from 'axios'
 import {useState,useEffect} from 'react'
+import {setNote,setTitle} from './redux/setText';
+import {useDispatch, useSelector} from "react-redux"
 
 const App = () => {
   const [notes,setNotes] = useState([]);
   const [updateNotes,setUpdateNotes] = useState("");
   
+  const dispatch = useDispatch();
 
 
   const addNote =(note) =>{
@@ -27,6 +30,8 @@ const App = () => {
   const getText = (inf) =>{
     axios.get('/update-notes/'+inf).then(response => {
       setNotes(response.data)
+      dispatch(setNote(notes[0].note))
+      dispatch(setTitle(notes[0].title))
     })
   }
 

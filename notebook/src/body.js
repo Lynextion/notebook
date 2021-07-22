@@ -1,22 +1,23 @@
 import {useEffect, useState} from 'react'
-import Markdown from 'markdown-to-jsx'
+import {setNote , setTitle} from './redux/setText';
+import {useDispatch, useSelector} from "react-redux"
 
 
 const Body =({notes}) => {
-    const [text,setText] = useState("");
-    const [title,setTitle] = useState(""); 
+    
+    const {note} = useSelector((state) => state.setText);
+    const {title} = useSelector((state) => state.setTitle);
+    const dispatch = useDispatch();
     const [tempTitle,setTempTitle] = useState("");
     const [tempText,setTempText] = useState("");
     const [id,setId] = useState('');
     
     
     const handlechange = (e) => {
-        setTitle(e.target.value);
+        dispatch(setTitle(e.target.value));
     }
-
     const handleChange = (e) => {
-        setText(e.target.value);
-       
+        dispatch(setNote(e.target.value))
     }
 
     //Don't forget to deletese these
@@ -50,7 +51,7 @@ const Body =({notes}) => {
                   cols='100'
                   name="Text"
                   onChange={handleChange}
-                  value={text}
+                  value={note}
                   placeholder="Write your notes"
                   style={{
                       border: 'none',
