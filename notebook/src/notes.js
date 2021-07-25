@@ -1,10 +1,10 @@
 import {useState, useEffect} from 'react'
 import axios from 'axios';
+import Note from './note'
 
 
 const Notes = ({notes,updateNotes})=>{
 
-const [id,setId] = useState(0);
 
 const OpenRightMenu = (e)=>{
    document.getElementsByClassName('nav')[0].style.display = 'flex'
@@ -20,12 +20,6 @@ const closeRightMenu = ()=>{
     document.getElementsByClassName('Sidenav')[0].style.height = '3'
 }
 
-const getText = (e)=>{
-    console.log(e)
-    updateNotes(e)
-
-
-}
 
 
 return (
@@ -33,7 +27,16 @@ return (
         <button className="nav-button" onClick={OpenRightMenu} style={{display:'flex'}} >&#9776;</button>   
         <div className="nav" style={{  display:"none", width: "10%" ,height: "100%"}} >
             <div className="Sidenav-content">
-                <button className="titles" onClick={(e)=>getText(notes.map((e) => e.id))}  >{notes.map((e) => e.title)}</button>
+            {notes.map(note =>{
+                return(
+                <Note 
+                    id={note.id}
+                    title={note.title} 
+                    updateNotes={updateNotes}
+                />
+                )
+                })    
+}              
             </div>
             <div style={{ display:"flex" ,position:"absolute" }}>
                 <button onClick={closeRightMenu} style= {{ height:"10%"}} >Close &times;</button>   

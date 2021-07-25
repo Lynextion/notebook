@@ -81,7 +81,7 @@ body{
 
 .Sidenav-content {
   background-color: black;
-  width: max-content;
+  width: inherit;
   margin-top: 30px;
   padding-right: 90px;
 }
@@ -90,9 +90,8 @@ body{
   border: 2px solid white;
   outline: none;
   text-align: center;
-  position: absolute;
   left: 18px;
-  margin-top: 20px;
+  margin-top: 15px;
   padding: 0px 10px 10px;
   background: black;
   color: white;

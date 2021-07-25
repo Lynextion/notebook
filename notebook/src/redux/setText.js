@@ -5,6 +5,7 @@ export const counterSlice = createSlice({
   initialState: {
     note: "",
     title:"",
+    id:0,
   },
   reducers: {
     setNote: (state, action) => {
@@ -12,10 +13,13 @@ export const counterSlice = createSlice({
     },
     setTitle: (state, action) => {
       state.title = action.payload
+    },
+    setId: (state, action) => {
+      state.id = action.payload
     }
   }
 })
 
-export const { setNote, setTitle  } = counterSlice.actions
+export const { setNote, setTitle , setId} = counterSlice.actions
 
 export default counterSlice.reducer
