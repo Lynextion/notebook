@@ -1,4 +1,3 @@
-import {useEffect, useState} from 'react'
 import {setNote , setTitle,setId} from './redux/setText';
 import {useDispatch, useSelector} from "react-redux"
 
@@ -10,9 +9,7 @@ const Body =({addNote,saveNote}) => {
     const {title} = useSelector((state) => state.setTitle);
     const {id} = useSelector((state) => state.setId);
     const dispatch = useDispatch();
-    const [tempTitle,setTempTitle] = useState("");
-    const [tempText,setTempText] = useState("");
-
+   
     
     console.log(note)
     
@@ -38,8 +35,8 @@ const Body =({addNote,saveNote}) => {
     return(
         
         <div style={{width:"100%"}}>
-        <button onClick={() => onSave()} style={{ position: "absolute",right: 0}} >Save</button>
-        <button onClick={() => onCreate()} style={{position:"absolute",right: 0,top:"27px"}}>Create New</button>
+        <button className="button button--hyperion" onClick={() => onSave()} style={{ position: "absolute",right: 0 }} ><span><span>Save</span></span></button>
+        <button className="button button--hyperion" onClick={() => onCreate()} style={{position:"absolute",right: "119px",top:0 }}><span><span>Create New</span></span></button>
         <textarea
             rows='2'
             cols='100'

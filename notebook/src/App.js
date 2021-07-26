@@ -1,5 +1,4 @@
 import './App.css'
-import Header from './header'
 import Body from './body'
 import Notes from './notes'
 import axios from 'axios'

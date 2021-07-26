@@ -1,11 +1,13 @@
 const express = require('express');
 const mysql = require('mysql');
+const data = require('./db_infos.json')
+
 
 const db = mysql.createConnection({
-  host: 'sql11.freemysqlhosting.net',
-  user: 'sql11427404',
-  password: 'RQKTN9twsc',
-  database: 'sql11427404',
+  host: data.host,
+  user:  data.user,
+  password: data.pass,
+  database: data.db,
 });
 
 db.connect((err) => {
